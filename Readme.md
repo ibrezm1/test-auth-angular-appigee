@@ -24,8 +24,8 @@
 
 ![Screenshot](imgs/Custom-widget.PNG)
 
-* Flow can be examined as below in chrome network -> mime-type:application/json -> Preserve Logs as below see more details for [sessionToken](https://developer.okta.com/docs/reference/api/authn/#authentication-operations)  ( api call to  {{url}}/api/v1/authn ) and [access_token](https://developer.okta.com/docs/reference/api/oidc/#authorize)  ( api call to {{url}}/api/v1/authorize) <br>
-![Screenshot](imgs/chrome-network.PNG) without [libirary usage](https://developer.okta.com/blog/2017/04/17/angular-authentication-with-oidc)
+* Flow can be examined as below in chrome network -> mime-type:application/json -> Preserve Logs as below see more details for [sessionToken](https://developer.okta.com/docs/reference/api/authn/#authentication-operations)  ( api call to  {{url}}/api/v1/authn ) and [access_token](https://developer.okta.com/docs/reference/api/oidc/#authorize)  ( api call to {{url}}/api/v1/authorize) 
+![Screenshot](imgs/chrome-network.PNG) without [libirary usage](https://developer.okta.com/blog/2017/04/17/angular-authentication-with-oidc) <br>
 * Excellent article to understand [PKCE flow](https://developer.okta.com/blog/2019/08/22/okta-authjs-pkce) and [10 mins](https://developer.okta.com/blog/2018/06/08/add-authentication-to-any-web-page-in-10-minutes)
 
 
