@@ -1,4 +1,5 @@
 ## Quick setup for Okta widget 
+---
 * this git [repo](https://github.com/ibrezm1/test-auth-angular-appigee)
 * installation of okta cli is the fastest way for [setup](https://cli.okta.com/)
 * installation more details [here](https://developer.okta.com/blog/2020/12/03/angular-okta)
@@ -29,4 +30,30 @@
 * Excellent article to understand [PKCE flow](https://developer.okta.com/blog/2019/08/22/okta-authjs-pkce) and [10 mins](https://developer.okta.com/blog/2018/06/08/add-authentication-to-any-web-page-in-10-minutes)
 * without [libirary usage](https://developer.okta.com/blog/2017/04/17/angular-authentication-with-oidc) also check theck the examples on the page
 
+## Spring boot Setup
+* Excellent article on user authorisation using claims in [okta](https://developer.okta.com/blog/2019/06/20/spring-preauthorize) 
+* Set up a resource server /messaes endpoint for our demo application [here](https://github.com/okta/samples-java-spring/tree/master/resource-server) 
+* Ideally Angular should have HttpInterceptor for added security headers as showcased [here](https://developer.okta.com/blog/2018/08/22/basic-crud-angular-7-and-spring-boot-2)
+```
+private async handleAccess(request: HttpRequest<any>, next: HttpHandler): Promise<HttpEvent<any>> {
+    // Only add to known domains since we don't want to send our tokens to just anyone.
+    // Also, Giphy's API fails when the request includes a token.
+    if (request.urlWithParams.indexOf('localhost') > -1) {
+      const accessToken = await this.oktaAuth.getAccessToken();
+      request = request.clone({
+        setHeaders: {
+          Authorization: 'Bearer ' + accessToken
+        }
+      });
+    }
+    return next.handle(request).toPromise();
+  }
+```
+## APIGEE Setup
+* Basic knowledge of API [edge](https://docs.apigee.com/api-platform/get-started/what-apigee-edge) and [tools](https://docs.apigee.com/api-platform/fundamentals/apigee-edge-command-line-tools)
+* Creation of [open-api-Spec](https://docs.apigee.com/api-platform/tutorials/tutorial-create-spec)
+* Creation of [simple-proxy](https://docs.apigee.com/api-platform/tutorials/create-api-proxy-openapi-spec)<br>
+![Screenshot](imgs/Apigee-flow01.PNG)
+* Publish apigee api to [portal](https://docs.apigee.com/api-platform/publish/portal/publish-apis)
+* Advanced Apigee [Examples](https://github.com/ra2085/apigee-scaffolding-samples)
 
